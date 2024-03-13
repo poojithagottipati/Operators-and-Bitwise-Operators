@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+
+    int msb_position = sizeof(int) * 8 - 1;
+
+    while ((num >> msb_position) == 0 && msb_position > 0) {
+        msb_position--;
+    }
+    if ((num >> msb_position) & 1) {
+        printf("The most significant bit (MSB) of %d is set.\n", num);
+    } else {
+        printf("The most significant bit (MSB) of %d is not set.\n", num);
+    }
+
+    return 0;
+}
+/*
+Enter a number: 6
+The most significant bit (MSB) of 6 is set.
+*/
